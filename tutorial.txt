@@ -1,0 +1,52 @@
+#passo a passo Thales 3°i8
+
+#instalar python
+#criar pasta
+#python -m venv (nome da venv)
+#.\teste\scripts\activate (para ativar a venv)
+#criar um arquivo fora da venv
+#import stremlit as st
+#criar codigo
+
+import streamlit as st
+
+def main():
+    st.title("Sistema Streamlit")
+    st.write("Este é um sistema de exemplo pra demonstrar o Streamlit")
+    st.write("Simulador de cadastro de Cliente")
+    nome = st.text_input("Digite seu nome")
+    email = st.text_input("Digite o E-mail do cliente")
+    data = st.date_input("Digite a data de nascimento do cliente")
+
+    endereco = st.text_area("Digite o endereço do cliente")
+    estadocivil = st.selectbox("Selecione o estado civil", ["Solteiro", "Casado", "Divorciado", "Viúvo", "União Estável"])
+
+    genero = st.radio("Selecione o gênero", ["Masculino", "Feminino", "Outro"])
+    if genero == "Outro":
+        genero = st.text_input("Digite o gênero do cliente")
+    notificacao = st.checkbox("Aceita receber notificações?")
+
+    if st.button("Cadastrar Cliente"):
+        st.success("Cliente cadastrado com sucesso!")
+        st.write("Nome: ", nome)
+        st.write("Email: ", email)
+        st.write("Data Nascimento: ", data)
+        st.write("Endereco: ", endereco)
+        st.write("Estado Civil: ", estadocivil)
+        st.write("Gênero: ", genero)
+        st.write("Notificação", notificacao)
+
+        with open("dados.txt", "w") as file:
+            file.write(f"Data de nascimento: {data}\n")
+            file.write(f"Endereço{endereco}\n")
+            file.write(f"Estado Civil{estadocivil}\n")
+            file.write(f"Gênero{genero}\n")
+            file.write(f"Notificação{notificacao}\n")
+        
+        st.download_button("Baixar Dados", "dados.txt", "download")
+
+if __name__ == "__main__":
+    main()
+#streamlit run app.py(nome do arquivo) --> rodas a aplicação
+
+
