@@ -1,0 +1,3 @@
+Tenho uma empresa chamada MotorWeb. Construa um site com as páginas home, veículos, serviços, sobre nós e contato. Crie os arquivos html,css e js estáticos para o site da minha empresa. Faça um design sofisticado, digno de sites que usam os melhores desenvolvedores de frontend do universo. Use e abuse de um design moderno que instiga o cliente.
+
+Tenho uma empresa chamada MotorWeb. Construa um site com a página home. Crie os arquivos html ,css e js estáticos para o site da minha empresa. Faça um design sofisticado, digno de sites que usam os melhores desenvolvedores de frontend do universo. Use e abuse de um design moderno que instiga o cliente.

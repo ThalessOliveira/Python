@@ -1,13 +1,474 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá Python II</title>
+    <title>MotorWeb | Soluções Digitais de Alto Impacto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Olá Mundo!!!</h1>
-    <h1>Olá Python II!!!</h1>
-    <a href="/contato">Entre em Contato</a>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-opacity-90 backdrop-blur-md bg-gray-900 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">MotorWeb</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Serviços</a>
+                        <a href="#" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Portfólio</a>
+                        <a href="#" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Sobre</a>
+                        <a href="#" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Contato</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#" class="ml-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg transition duration-300">
+                        Comece agora
+                    </a>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Home</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Serviços</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Portfólio</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Sobre</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Contato</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 mt-2 text-center">
+                    Comece agora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="gradient-text">Potencialize</span> seu negócio com soluções digitais
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                        Na MotorWeb, transformamos ideias em experiências digitais excepcionais. Nossa equipe de especialistas cria soluções personalizadas que impulsionam seu negócio para o próximo nível.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-full shadow-lg transition duration-300">
+                            Nossos serviços
+                        </a>
+                        <a href="#" class="px-8 py-3 border border-gray-600 hover:border-white text-white font-medium rounded-full shadow-lg transition duration-300 flex items-center">
+                            <i class="fas fa-play-circle mr-2"></i> Vídeo demo
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center space-x-6">
+                        <div class="flex -space-x-2">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-gray-800" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Cliente satisfeito">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente satisfeito">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-gray-800" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente satisfeito">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-300">+500 clientes satisfeitos</p>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-sm ml-1">5.0 (200+ reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10 animate-float">
+                        <img src="https://images.pexels.com/photos/1397751/pexels-photo-1397751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dashboard moderno" class="rounded-xl shadow-2xl border border-gray-700">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+                </div>
+            </div>
+        </div>
+        <a href="#services" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-12 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-400 mb-8">Trabalhamos com as melhores empresas</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <img src="https://logo.clearbit.com/airbnb.com" alt="Airbnb" class="h-8 opacity-50 hover:opacity-100 transition duration-300 mx-auto">
+                <img src="https://logo.clearbit.com/slack.com" alt="Slack" class="h-8 opacity-50 hover:opacity-100 transition duration-300 mx-auto">
+                <img src="https://logo.clearbit.com/netflix.com" alt="Netflix" class="h-8 opacity-50 hover:opacity-100 transition duration-300 mx-auto">
+                <img src="https://logo.clearbit.com/spotify.com" alt="Spotify" class="h-8 opacity-50 hover:opacity-100 transition duration-300 mx-auto">
+                <img src="https://logo.clearbit.com/uber.com" alt="Uber" class="h-8 opacity-50 hover:opacity-100 transition duration-300 mx-auto">
+                <img src="https://logo.clearbit.com/dropbox.com" alt="Dropbox" class="h-8 opacity-50 hover:opacity-100 transition duration-300 mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider uppercase gradient-text">Nossos Serviços</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Soluções completas para seu negócio</h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Oferecemos um conjunto abrangente de serviços digitais projetados para atender às necessidades exclusivas do seu negócio.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Desenvolvimento Web</h3>
+                    <p class="text-gray-400 mb-4">
+                        Sites e aplicações web personalizadas, otimizadas para desempenho e conversão, construídas com as tecnologias mais modernas.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Aplicativos Móveis</h3>
+                    <p class="text-gray-400 mb-4">
+                        Aplicativos nativos e híbridos para iOS e Android, projetados para oferecer a melhor experiência do usuário.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">E-commerce</h3>
+                    <p class="text-gray-400 mb-4">
+                        Lojas virtuais completas com integração de pagamentos, gestão de estoque e experiência de compra otimizada.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Marketing Digital</h3>
+                    <p class="text-gray-400 mb-4">
+                        Estratégias de marketing digital sob medida para aumentar sua presença online e gerar leads qualificados.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-search-dollar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SEO</h3>
+                    <p class="text-gray-400 mb-4">
+                        Otimização para mecanismos de busca para aumentar sua visibilidade orgânica e atrair tráfego qualificado.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Suporte 24/7</h3>
+                    <p class="text-gray-400 mb-4">
+                        Suporte técnico especializado disponível a qualquer momento para garantir que seu negócio funcione sem problemas.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <span class="text-sm font-semibold tracking-wider uppercase gradient-text">Por que escolher-nos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Recursos que fazem a diferença</h2>
+                    <p class="text-lg text-gray-400 mb-8">
+                        Nossa abordagem única combina tecnologia de ponta com design excepcional para criar soluções que realmente funcionam.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-white">Design Centrado no Usuário</h3>
+                                <p class="mt-2 text-gray-400">
+                                    Interfaces intuitivas que encantam seus clientes e aumentam a conversão.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-white">Tecnologia de Ponta</h3>
+                                <p class="mt-2 text-gray-400">
+                                    Utilizamos as frameworks e linguagens mais modernas para garantir performance e segurança.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-white">Metodologia Ágil</h3>
+                                <p class="mt-2 text-gray-400">
+                                    Processos transparentes e iterativos que garantem resultados rápidos e alinhados com suas necessidades.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://images.pexels.com/photos/256453/pexels-photo-256453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Recursos avançados" class="rounded-xl shadow-2xl border border-gray-700">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider uppercase gradient-text">Depoimentos</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">O que nossos clientes dizem</h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    A satisfação dos nossos clientes é nossa maior recompensa. Veja o que eles têm a dizer sobre a MotorWeb.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-700 rounded-xl p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente satisfeito">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-white">Ana Carolina</h3>
+                            <p class="text-gray-400">CEO, Empresa X</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "A MotorWeb transformou completamente nossa presença online. Nosso site não apenas ficou incrível, mas também aumentou nossas vendas em 150% no primeiro mês."
+                    </p>
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-700 rounded-xl p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/54.jpg" alt="Cliente satisfeito">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-white">Ricardo Almeida</h3>
+                            <p class="text-gray-400">Diretor, Startup Y</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "Trabalhar com a MotorWeb foi uma experiência incrível. Eles entenderam perfeitamente nossa visão e entregaram um produto que superou todas as expectativas."
+                    </p>
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-700 rounded-xl p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente satisfeito">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-white">Fernanda Oliveira</h3>
+                            <p class="text-gray-400">CMO, Grupo Z</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "A equipe da MotorWeb é extremamente profissional e competente. Nosso aplicativo móvel ficou perfeito e os usuários estão amando a experiência."
+                    </p>
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-700">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para transformar seu negócio?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Entre em contato conosco hoje mesmo e descubra como podemos ajudar seu negócio a alcançar novos patamares.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 font-bold rounded-full shadow-lg transition duration-300">
+                    Solicitar orçamento
+                </a>
+                <a href="#" class="px-8 py-4 border-2 border-white hover:bg-white hover:bg-opacity-10 text-white font-bold rounded-full shadow-lg transition duration-300">
+                    <i class="fas fa-phone-alt mr-2"></i> Fale conosco
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold gradient-text mb-6">MotorWeb</h3>
+                    <p class="text-gray-400 mb-6">
+                        Transformando ideias em experiências digitais excepcionais desde 2015.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Serviços</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Desenvolvimento Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Aplicativos Móveis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">E-commerce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Marketing Digital</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SEO</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Empresa</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sobre nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Portfólio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Carreiras</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Contato</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">Av. Paulista, 1000<br>São Paulo - SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-gray-400 mr-3"></i>
+                            <span class="text-gray-400">(11) 9999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <span class="text-gray-400">contato@motorweb.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2023 MotorWeb. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Termos de Serviço</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Política de Privacidade</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static '/js/index.js' %}"></script>
 </body>
 </html>
