@@ -1,0 +1,34 @@
+# Ignora ambientes virtuais comuns em qualquer lugar do projeto
+**/env/
+**/.env/
+**/venv/
+**/.venv/
+
+# Ignora arquivos de cache do Python
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
+
+# Arquivos de log, dumps, e temporários
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Arquivos de teste e cobertura
+.coverage
+.tox/
+.nox/
+.cache/
+.pytest_cache/
+
+# Arquivos criados pelo IDE/editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
