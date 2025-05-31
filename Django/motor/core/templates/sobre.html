@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotorWeb - Seu Destino Automotivo</title>
+    <title>Sobre Nós - MotorWeb</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,17 +16,17 @@
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <a href="/" class="flex-shrink-0">
+                    <a href="index.html" class="flex-shrink-0">
                         <img class="h-10 w-auto" src="https://placehold.co/150x50/000000/FFFFFF?text=MotorWeb" alt="Logo MotorWeb">
                     </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="/" class="nav-link" data-page="index">Home</a>
-                        <a href="/veiculo" class="nav-link" data-page="veiculos">Veículos</a>
-                        <a href="/servico" class="nav-link" data-page="servicos">Serviços</a>
-                        <a href="/sobre" class="nav-link" data-page="sobre">Sobre Nós</a>
-                        <a href="/contato" class="nav-link" data-page="contato">Contato</a>
+                        <a href="index.html" class="nav-link" data-page="index">Home</a>
+                        <a href="veiculos.html" class="nav-link" data-page="veiculos">Veículos</a>
+                        <a href="servicos.html" class="nav-link" data-page="servicos">Serviços</a>
+                        <a href="sobre.html" class="nav-link" data-page="sobre">Sobre Nós</a>
+                        <a href="contato.html" class="nav-link" data-page="contato">Contato</a>
                     </div>
                 </div>
                 <div class="md:hidden flex items-center">
@@ -43,7 +43,8 @@
             </div>
         </nav>
 
-        <div id="mobile-menu" class="md:hidden hidden"> <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="index.html" class="nav-link-mobile" data-page="index">Home</a>
                 <a href="veiculos.html" class="nav-link-mobile" data-page="veiculos">Veículos</a>
                 <a href="servicos.html" class="nav-link-mobile" data-page="servicos">Serviços</a>
@@ -54,71 +55,69 @@
     </header>
 
     <main id="page-content">
-        <section class="hero-bg text-white py-20 md:py-32">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center bg-black bg-opacity-50 p-8 rounded-lg">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Bem-vindo à MotorWeb</h1>
-                <p class="text-lg sm:text-xl md:text-2xl mb-8">Seu próximo veículo e os melhores serviços automotivos estão aqui.</p>
-                <a href="veiculos.html" class="btn-primary text-lg">Ver Nossos Veículos</a>
-            </div>
-        </section>
-
-        <section class="py-16 bg-gray-50">
+        <section class="py-12 bg-gray-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Veículos em Destaque</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card">
-                        <img src="https://placehold.co/600x400/cccccc/333333?text=Sedan+Moderno" alt="[Imagem de um Sedan Moderno]" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Sedan Luxo 2024</h3>
-                            <p class="text-gray-600 mb-1">Modelo Exemplo S</p>
-                            <p class="text-amber-600 font-bold text-lg mb-4">R$ 120.000,00</p>
-                            <a href="veiculos.html#veiculo1" class="block text-center btn-secondary w-full">Ver Detalhes</a>
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Sobre a MotorWeb</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Conheça a nossa história, missão e os valores que nos movem a oferecer o melhor para você e seu veículo.</p>
+                </div>
+
+                <div class="bg-white p-8 md:p-12 rounded-xl shadow-xl mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-amber-600 mb-4">Nossa História</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Fundada em [Ano de Fundação], a MotorWeb nasceu da paixão por automóveis e do desejo de criar um espaço onde clientes pudessem encontrar não apenas veículos de qualidade, mas também serviços confiáveis e um atendimento diferenciado. Ao longo dos anos, crescemos e nos consolidamos como referência no mercado automotivo regional, sempre investindo em tecnologia, capacitação de nossa equipe e, principalmente, na satisfação de nossos clientes.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Cada etapa da nossa trajetória foi marcada pelo compromisso com a transparência e a excelência, construindo relações de confiança duradouras.
+                            </p>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="https://placehold.co/600x400/e0e0e0/333333?text=SUV+Aventura" alt="[Imagem de um SUV para Aventura]" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">SUV Aventura 4x4</h3>
-                            <p class="text-gray-600 mb-1">Modelo Exemplo XA</p>
-                            <p class="text-amber-600 font-bold text-lg mb-4">R$ 180.000,00</p>
-                            <a href="veiculos.html#veiculo2" class="block text-center btn-secondary w-full">Ver Detalhes</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="https://placehold.co/600x400/d8d8d8/333333?text=Hatch+Esportivo" alt="[Imagem de um Hatch Esportivo]" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Hatch Esportivo GT</h3>
-                            <p class="text-gray-600 mb-1">Modelo Exemplo GT</p>
-                            <p class="text-amber-600 font-bold text-lg mb-4">R$ 95.000,00</p>
-                            <a href="veiculos.html#veiculo3" class="block text-center btn-secondary w-full">Ver Detalhes</a>
+                        <div>
+                            <img src="https://placehold.co/600x400/e0e0e0/333333?text=Fachada+Histórica+MotorWeb" alt="[Imagem da fachada da MotorWeb ou uma imagem conceitual da empresa]" class="rounded-lg shadow-md w-full">
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nossos Serviços</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div class="p-6 rounded-lg hover:shadow-xl transition-shadow">
-                        <i class="fas fa-car-mechanic text-5xl text-amber-500 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Manutenção Preventiva</h3>
-                        <p class="text-gray-600">Cuide do seu veículo com quem entende do assunto.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-amber-600 mb-3"><i class="fas fa-bullseye mr-2"></i> Nossa Missão</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Proporcionar soluções automotivas completas, desde a aquisição do veículo ideal até a manutenção especializada, superando as expectativas de nossos clientes através de um atendimento personalizado, produtos de qualidade e serviços de excelência, com ética e responsabilidade.
+                        </p>
                     </div>
-                    <div class="p-6 rounded-lg hover:shadow-xl transition-shadow">
-                        <i class="fas fa-tools text-5xl text-amber-500 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Reparos Especializados</h3>
-                        <p class="text-gray-600">Soluções completas para todos os tipos de reparo.</p>
-                    </div>
-                    <div class="p-6 rounded-lg hover:shadow-xl transition-shadow">
-                        <i class="fas fa-search-dollar text-5xl text-amber-500 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Consultoria e Venda</h3>
-                        <p class="text-gray-600">Encontre o carro ideal com nossa ajuda especializada.</p>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-amber-600 mb-3"><i class="fas fa-eye mr-2"></i> Nossa Visão</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ser reconhecida como a principal referência em concessionária e centro automotivo da região, destacando-nos pela inovação, confiabilidade e pelo compromisso com a satisfação total de nossos clientes e colaboradores.
+                        </p>
                     </div>
                 </div>
-                <div class="text-center mt-12">
-                    <a href="servicos.html" class="btn-primary">Conheça Todos os Serviços</a>
+
+                <div class="bg-white p-8 md:p-12 rounded-xl shadow-xl">
+                    <h2 class="text-3xl font-semibold text-center text-amber-600 mb-8">Nossos Valores</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div class="p-4">
+                            <i class="fas fa-handshake text-4xl text-gray-700 mb-3"></i>
+                            <h4 class="text-xl font-medium text-gray-800 mb-1">Confiança</h4>
+                            <p class="text-gray-600 text-sm">Transparência em todas as negociações.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-star text-4xl text-gray-700 mb-3"></i>
+                            <h4 class="text-xl font-medium text-gray-800 mb-1">Qualidade</h4>
+                            <p class="text-gray-600 text-sm">Produtos e serviços de excelência.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-users text-4xl text-gray-700 mb-3"></i>
+                            <h4 class="text-xl font-medium text-gray-800 mb-1">Foco no Cliente</h4>
+                            <p class="text-gray-600 text-sm">Sua satisfação é nossa prioridade.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-cogs text-4xl text-gray-700 mb-3"></i>
+                            <h4 class="text-xl font-medium text-gray-800 mb-1">Inovação</h4>
+                            <p class="text-gray-600 text-sm">Buscando sempre as melhores soluções.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -165,4 +164,3 @@
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
-

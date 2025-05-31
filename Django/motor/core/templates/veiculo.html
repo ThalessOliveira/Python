@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos - MotorWeb</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-gray-800 text-white sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0">
+                        <img class="h-10 w-auto" src="https://placehold.co/150x50/000000/FFFFFF?text=MotorWeb" alt="Logo MotorWeb">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="nav-link" data-page="index">Home</a>
+                        <a href="veiculos.html" class="nav-link" data-page="veiculos">Veículos</a>
+                        <a href="servicos.html" class="nav-link" data-page="servicos">Serviços</a>
+                        <a href="sobre.html" class="nav-link" data-page="sobre">Sobre Nós</a>
+                        <a href="contato.html" class="nav-link" data-page="contato">Contato</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" id="icon-hamburger">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" id="icon-x">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="nav-link-mobile" data-page="index">Home</a>
+                <a href="veiculos.html" class="nav-link-mobile" data-page="veiculos">Veículos</a>
+                <a href="servicos.html" class="nav-link-mobile" data-page="servicos">Serviços</a>
+                <a href="sobre.html" class="nav-link-mobile" data-page="sobre">Sobre Nós</a>
+                <a href="contato.html" class="nav-link-mobile" data-page="contato">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="page-content">
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl font-bold text-center mb-10 text-gray-800">Nossos Veículos</h1>
+                <div class="mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="relative w-full md:w-1/3">
+                        <input type="text" placeholder="Buscar por marca ou modelo..." class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                        <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <div class="flex gap-4">
+                        <select class="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                            <option value="">Ordenar por</option>
+                            <option value="preco-asc">Preço: Menor para Maior</option>
+                            <option value="preco-desc">Preço: Maior para Menor</option>
+                            <option value="ano-desc">Ano: Mais Novo</option>
+                            <option value="ano-asc">Ano: Mais Antigo</option>
+                        </select>
+                        <select class="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                            <option value="">Tipo</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="hatch">Hatch</option>
+                            <option value="pickup">Pickup</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card" id="veiculo1">
+                        <img src="https://placehold.co/600x400/cccccc/333333?text=Sedan+Elegante" alt="[Imagem de um Sedan Elegante]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Sedan Elegance Premium</h3>
+                            <p class="text-gray-600 text-sm mb-1">Marca A - Modelo EP - 2023</p>
+                            <p class="text-gray-500 text-xs mb-3">Automático | Flex | 15.000 km</p>
+                            <p class="text-amber-600 font-bold text-2xl mb-4">R$ 135.000,00</p>
+                            <a href="contato.html?assunto=Interesse%20Sedan%20Elegance%20Premium" class="btn-primary w-full text-center">Tenho Interesse</a>
+                        </div>
+                    </div>
+                    <div class="card" id="veiculo2">
+                        <img src="https://placehold.co/600x400/e0e0e0/333333?text=SUV+Robusto" alt="[Imagem de um SUV Robusto]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">SUV Explorer Max</h3>
+                            <p class="text-gray-600 text-sm mb-1">Marca B - Modelo XM - 2022</p>
+                            <p class="text-gray-500 text-xs mb-3">Diesel | 4x4 | 30.000 km</p>
+                            <p class="text-amber-600 font-bold text-2xl mb-4">R$ 210.000,00</p>
+                            <a href="contato.html?assunto=Interesse%20SUV%20Explorer%20Max" class="btn-primary w-full text-center">Tenho Interesse</a>
+                        </div>
+                    </div>
+                    <div class="card" id="veiculo3">
+                        <img src="https://placehold.co/600x400/d8d8d8/333333?text=Hatch+Compacto" alt="[Imagem de um Hatch Compacto]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Hatch City Urbano</h3>
+                            <p class="text-gray-600 text-sm mb-1">Marca C - Modelo CU - 2024</p>
+                            <p class="text-gray-500 text-xs mb-3">Manual | Gasolina | 0 km</p>
+                            <p class="text-amber-600 font-bold text-2xl mb-4">R$ 88.000,00</p>
+                            <a href="contato.html?assunto=Interesse%20Hatch%20City%20Urbano" class="btn-primary w-full text-center">Tenho Interesse</a>
+                        </div>
+                    </div>
+                     <div class="card" id="veiculo4">
+                        <img src="https://placehold.co/600x400/c0c0c0/333333?text=Pickup+Trabalho" alt="[Imagem de uma Pickup para Trabalho]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Pickup Força Total</h3>
+                            <p class="text-gray-600 text-sm mb-1">Marca D - Modelo FT - 2021</p>
+                            <p class="text-gray-500 text-xs mb-3">Diesel | 4x2 | 55.000 km</p>
+                            <p class="text-amber-600 font-bold text-2xl mb-4">R$ 165.000,00</p>
+                            <a href="contato.html?assunto=Interesse%20Pickup%20Força%20Total" class="btn-primary w-full text-center">Tenho Interesse</a>
+                        </div>
+                    </div>
+                     <div class="card" id="veiculo5">
+                        <img src="https://placehold.co/600x400/bababa/333333?text=Esportivo+Veloz" alt="[Imagem de um Carro Esportivo Veloz]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Esportivo Veloster R</h3>
+                            <p class="text-gray-600 text-sm mb-1">Marca E - Modelo VR - 2023</p>
+                            <p class="text-gray-500 text-xs mb-3">Gasolina | Turbo | 8.000 km</p>
+                            <p class="text-amber-600 font-bold text-2xl mb-4">R$ 250.000,00</p>
+                            <a href="contato.html?assunto=Interesse%20Esportivo%20Veloster%20R" class="btn-primary w-full text-center">Tenho Interesse</a>
+                        </div>
+                    </div>
+                     <div class="card" id="veiculo6">
+                        <img src="https://placehold.co/600x400/b0b0b0/333333?text=Familiar+Espaçoso" alt="[Imagem de um Carro Familiar Espaçoso]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Minivan Family Plus</h3>
+                            <p class="text-gray-600 text-sm mb-1">Marca F - Modelo FP - 2022</p>
+                            <p class="text-gray-500 text-xs mb-3">Flex | 7 Lugares | 22.000 km</p>
+                            <p class="text-amber-600 font-bold text-2xl mb-4">R$ 145.000,00</p>
+                            <a href="contato.html?assunto=Interesse%20Minivan%20Family%20Plus" class="btn-primary w-full text-center">Tenho Interesse</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 flex justify-center">
+                    <nav aria-label="Page navigation">
+                      <ul class="inline-flex items-center -space-x-px">
+                        <li>
+                          <a href="#" class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700">Anterior</a>
+                        </li>
+                        <li>
+                          <a href="#" aria-current="page" class="z-10 py-2 px-3 leading-tight text-amber-600 bg-amber-50 border border-amber-300 hover:bg-amber-100 hover:text-amber-700">1</a>
+                        </li>
+                        <li>
+                          <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+                        </li>
+                        <li>
+                          <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
+                        </li>
+                        <li>
+                          <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700">Próximo</a>
+                        </li>
+                      </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bg text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">MotorWeb</h3>
+                    <p class="text-sm">Sua jornada automotiva começa aqui. Qualidade, confiança e os melhores negócios.</p>
+                     <img src="https://placehold.co/150x50/FFFFFF/1f2937?text=MotorWeb+Branco" alt="Logo MotorWeb Rodapé" class="mt-4 h-10 w-auto opacity-75">
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="veiculos.html" class="hover:text-amber-400 transition-colors">Veículos</a></li>
+                        <li><a href="servicos.html" class="hover:text-amber-400 transition-colors">Serviços</a></li>
+                        <li><a href="sobre.html" class="hover:text-amber-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-amber-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mt-6 mb-2">Contato</h3>
+                    <p class="text-sm"><i class="fas fa-phone mr-2"></i> (XX) XXXX-XXXX</p>
+                    <p class="text-sm"><i class="fas fa-envelope mr-2"></i> contato@motorweb.com.br</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>© <span id="currentYear"></span> MotorWeb. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <i class="fas fa-heart text-amber-500"></i> por Seu Nome/Sua Agência</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

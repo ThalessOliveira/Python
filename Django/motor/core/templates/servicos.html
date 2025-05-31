@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - MotorWeb</title>
+    <title>Serviços - MotorWeb</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -55,63 +55,76 @@
     </header>
 
     <main id="page-content">
-        <section class="py-12 bg-gray-50">
+        <section class="py-12 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Entre em Contato</h1>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Estamos prontos para atendê-lo. Envie sua mensagem ou visite-nos!</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="bg-white p-8 rounded-xl shadow-xl">
-                        <h2 class="text-2xl font-semibold text-amber-600 mb-6">Envie uma Mensagem</h2>
-                        <form id="contactForm" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
-                                <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-                                <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700">Telefone (Opcional)</label>
-                                <input type="tel" name="phone" id="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="subject" class="block text-sm font-medium text-gray-700">Assunto</label>
-                                <input type="text" name="subject" id="subject" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
-                                <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"></textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="w-full btn-primary">
-                                    Enviar Mensagem
-                                </button>
-                            </div>
-                        </form>
-                        <div id="form-feedback" class="mt-4 text-sm"></div>
-                    </div>
-
-                    <div class="space-y-8">
-                        <div class="bg-white p-8 rounded-xl shadow-xl">
-                            <h2 class="text-2xl font-semibold text-amber-600 mb-6">Nossas Informações</h2>
-                            <div class="space-y-4 text-gray-700">
-                                <p><i class="fas fa-map-marker-alt fa-fw mr-3 text-amber-500"></i>Rua Exemplo, 123, Bairro Centro<br><span class="ml-7">Cidade Exemplo, UF - CEP 12345-678</span></p>
-                                <p><i class="fas fa-phone fa-fw mr-3 text-amber-500"></i>(XX) 1234-5678</p>
-                                <p><i class="fas fa-mobile-alt fa-fw mr-3 text-amber-500"></i>(XX) 91234-5678 (WhatsApp)</p>
-                                <p><i class="fas fa-envelope fa-fw mr-3 text-amber-500"></i>contato@motorweb.com.br</p>
-                                <p><i class="fas fa-clock fa-fw mr-3 text-amber-500"></i>Segunda a Sexta: 08:00 - 18:00<br><span class="ml-7">Sábado: 08:00 - 12:00</span></p>
-                            </div>
+                <h1 class="text-4xl font-bold text-center mb-10 text-gray-800">Nossos Serviços</h1>
+                <div class="space-y-12">
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="md:w-1/3 mb-6 md:mb-0 md:mr-8">
+                            <img src="https://placehold.co/600x400/f0f0f0/333333?text=Manutenção+Completa" alt="[Imagem ilustrativa de Manutenção Completa]" class="rounded-lg shadow-md w-full">
                         </div>
-                        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
-                             <h2 class="text-2xl font-semibold text-amber-600 p-8 pb-0">Localização</h2>
-                            <img src="https://placehold.co/600x400/e2e8f0/334155?text=Mapa+da+Localização+da+MotorWeb" alt="[Mapa da localização da MotorWeb]" class="w-full h-72 object-cover p-8 pt-4">
-                            <!-- Exemplo de Iframe (descomente e ajuste o src):
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83543450937!2d144.9537353153165!3d-37.81627997975153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d79646a7bd5e!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1603190628709!5m2!1sen!2sau" class="w-full h-72 border-0" allowfullscreen="" loading="lazy"></iframe>
-                            -->
+                        <div class="md:w-2/3">
+                            <h2 class="text-2xl font-semibold text-amber-600 mb-3"><i class="fas fa-oil-can mr-2"></i> Manutenção Preventiva e Corretiva</h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Oferecemos um plano completo de manutenção para garantir que seu veículo esteja sempre em perfeitas condições. Desde trocas de óleo e filtros até revisões complexas, nossa equipe utiliza peças de qualidade e tecnologia de ponta.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Troca de óleo e filtros</li>
+                                <li>Alinhamento e balanceamento</li>
+                                <li>Revisão de freios e suspensão</li>
+                                <li>Diagnóstico eletrônico</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row-reverse items-center bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="md:w-1/3 mb-6 md:mb-0 md:ml-8">
+                             <img src="https://placehold.co/600x400/e8e8e8/333333?text=Reparos+Especializados" alt="[Imagem ilustrativa de Reparos Especializados]" class="rounded-lg shadow-md w-full">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-2xl font-semibold text-amber-600 mb-3"><i class="fas fa-wrench mr-2"></i> Reparos Mecânicos e Elétricos</h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Nossos mecânicos são altamente qualificados para lidar com qualquer tipo de reparo, seja mecânico ou elétrico. Utilizamos equipamentos modernos para diagnósticos precisos e soluções eficientes para seu carro.
+                            </p>
+                             <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Reparo de motor e câmbio</li>
+                                <li>Sistemas de injeção eletrônica</li>
+                                <li>Ar condicionado automotivo</li>
+                                <li>Parte elétrica geral</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="md:w-1/3 mb-6 md:mb-0 md:mr-8">
+                            <img src="https://placehold.co/600x400/e0e0e0/333333?text=Funilaria+e+Pintura" alt="[Imagem ilustrativa de Funilaria e Pintura]" class="rounded-lg shadow-md w-full">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-2xl font-semibold text-amber-600 mb-3"><i class="fas fa-paint-roller mr-2"></i> Funilaria e Pintura</h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Devolvemos a estética original do seu veículo com serviços de funilaria e pintura de alta qualidade. Utilizamos materiais de primeira linha para garantir um acabamento impecável e duradouro.
+                            </p>
+                             <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Recuperação de para-choques</li>
+                                <li>Pintura geral e retoques</li>
+                                <li>Polimento e cristalização</li>
+                                <li>Martelinho de ouro</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="flex flex-col md:flex-row-reverse items-center bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="md:w-1/3 mb-6 md:mb-0 md:ml-8">
+                             <img src="https://placehold.co/600x400/d8d8d8/333333?text=Venda+de+Peças" alt="[Imagem ilustrativa de Venda de Peças e Acessórios]" class="rounded-lg shadow-md w-full">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-2xl font-semibold text-amber-600 mb-3"><i class="fas fa-cogs mr-2"></i> Venda de Peças e Acessórios</h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Contamos com um vasto estoque de peças originais e de reposição para diversas marcas e modelos. Além disso, oferecemos uma linha completa de acessórios para personalizar e equipar seu veículo.
+                            </p>
+                             <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Peças originais e paralelas</li>
+                                <li>Baterias, pneus e lubrificantes</li>
+                                <li>Acessórios internos e externos</li>
+                                <li>Som automotivo e multimídia</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

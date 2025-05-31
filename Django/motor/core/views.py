@@ -1,16 +1,20 @@
 from django.shortcuts import render
 
-def index(request): #recebe os dados da requisição como parâmetro
-    return render(request, 'index.html') #renderiza a página 
+# Create your views here.
+def index(request):
+    return render(request, 'index.html')
+
+def sobre(request):
+    return render(request, 'sobre.html')
+def servico(request):
+    return render(request, 'servicos.html')
+def veiculo(request):
+    return render(request, 'veiculo.html')
 
 def contato(request):
-    #contexto (dicionario)
-    #esses dados são renderizados dentro do template por {{}}
     context = {
         'nome':'MotorWeb',
-        'telefone':'17-3245-2342',
-        'email':'motorweb@teste.com',
+        'fone':'17-7070-6070',
+        'email':'motorweb@teste.com'
     }
-    #para mandar para o template, é necessário colocar sempre na terceira posição da render
     return render(request, 'contato.html', context)
-    
