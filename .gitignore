@@ -32,3 +32,43 @@
 # Arquivos do sistema operacional
 .DS_Store
 Thumbs.db
+
+# Arquivo .gitignore para um projeto frontend com Node.js e Vite
+
+# Ignorar logs de dependências
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Arquivos de configuração do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Pasta de dependências
+# Esta pasta pode ter gigabytes e é sempre recriada com 'npm install'
+node_modules/
+
+# Pasta de build
+# Esta pasta contém os arquivos finais para produção e é gerada com 'npm run build'
+dist/
+
+# Arquivos de cache e temporários do Vite
+.vite/
+.vite-ssg-cache/
+
+# Arquivos de ambiente
+# Eles podem conter senhas, chaves de API e outras informações sensíveis.
+# É uma boa prática versionar um arquivo de exemplo, mas nunca os arquivos reais.
+.env
+.env.local
+.env.*.local
+
+# Arquivos de configuração de IDEs e editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

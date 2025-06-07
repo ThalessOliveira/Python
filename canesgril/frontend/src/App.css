@@ -1,0 +1,162 @@
+/* Importa uma fonte rústica e legível do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+
+/* --- Variáveis de Cor --- */
+:root {
+  --primary-color: #af4c0f; /* Laranja queimado / Ferrugem */
+  --secondary-color: #ff3131; /* Vermelho vibrante */
+  --background-solid: #2e2e2e; /* NOVA COR: Fundo sólido mais claro */
+  --background-content: #1f1f1f; /* Cor de fundo para o conteúdo */
+  --text-light: #f0f0f0;
+  --text-dark: #333;
+}
+
+/* --- Estilos Globais --- */
+body {
+  margin: 0;
+  font-family: 'Arvo', serif;
+  background-color: var(--background-solid); /* MUDANÇA: Cor sólida */
+  color: var(--text-light);
+  /* MUDANÇA: Imagem de fundo removida */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Cabeçalho e Navegação --- */
+.app-header {
+  background-color: var(--background-content);
+  padding: 1rem 0; /* Padding vertical, horizontal será no container */
+  border-bottom: 4px solid var(--primary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+/* NOVO: Container para centralizar o conteúdo do cabeçalho */
+.header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: var(--text-light);
+}
+
+.logo-container h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.logo-container img {
+  height: 50px;
+  width: auto;
+}
+
+.main-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-left: 2rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.main-nav a:hover, .main-nav a.active {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+}
+
+/* --- Conteúdo Principal --- */
+main {
+  flex-grow: 1;
+  padding: 2rem 1rem;
+  max-width: 960px;
+  margin: 0 auto; /* Isso já centralizava o main, mantemos */
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+
+/* --- Rodapé --- */
+.app-footer {
+  width: 100%;
+  padding: 1.5rem 0; /* Padding vertical, horizontal será no container */
+  background-color: var(--background-content);
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* NOVO: Container para centralizar o conteúdo do rodapé */
+.footer-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+
+/* --- Estilos de Página (Churras & Home) --- */
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-header img {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.page-header h1 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.page-header h2 {
+  font-size: 1.3rem;
+  color: #ccc;
+  font-weight: 400;
+}
+
+.churras-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-content);
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.churras-table th, .churras-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--background-solid);
+}
+
+.churras-table thead {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.churras-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.churras-table tbody tr:hover {
+  background-color: #3a3a3a;
+}

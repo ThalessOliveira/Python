@@ -1,0 +1,18 @@
+/*
+  Este arquivo agora define apenas as configurações mais básicas
+  que se aplicam a todo o projeto.
+  Removemos todos os estilos de layout como 'display: flex' do body.
+*/
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  /* A fonte, cor de fundo e cor de texto
+     serão controladas pelo nosso App.css */
+}
