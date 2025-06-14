@@ -1,0 +1,85 @@
+/* --- Estilos da Página Home --- */
+
+/* Remove o padding padrão do 'main' para permitir o banner em tela cheia */
+.main-home {
+    padding: 0;
+    max-width: 100%; /* Permite que o conteúdo ocupe toda a largura */
+  }
+  
+  /* --- Seção Hero Banner --- */
+  .hero-banner {
+    position: relative; /* Necessário para o posicionamento do overlay */
+    height: 60vh; /* Altura do banner (60% da altura da tela) */
+    min-height: 450px; /* Garante uma altura mínima em telas menores */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden; /* Garante que nada saia dos limites */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center center; /* Centraliza a imagem */
+  }
+  
+  /* Overlay escuro para garantir a legibilidade do texto sobre a imagem */
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.70); /* Camada preta com 55% de opacidade */
+    z-index: 1; /* Fica entre a imagem de fundo e o conteúdo */
+  }
+  
+  /* Conteúdo do banner (texto e botão) */
+  .hero-content {
+    position: relative;
+    z-index: 2; /* Fica na frente do overlay */
+    padding: 1rem;
+    max-width: 800px;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Fonte responsiva */
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-content p {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem); /* Fonte responsiva */
+    color: #f0f0f0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Botão "Call to Action" */
+  .cta-button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px; /* Bordas arredondadas */
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cta-button:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-3px); /* Efeito de elevação */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  

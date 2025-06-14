@@ -1,43 +1,80 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 // Importando os estilos e componentes
 import './App.css';
+// Crie e importe o CSS para a página Home
+import './pages/styles/Home.css'; 
+
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Churras from './pages/churras';
+import Churras from './pages/Churras';
+import PratoDetalhe from './pages/PratoDetalhe';
 import Testar from './pages/Testar';
 
-// O componente Home pode continuar aqui ou ser movido para 'pages/Home.jsx'
+// Importando a imagem do banner
+// Verifique se o caminho para sua imagem está correto
+import bannerImage from './assets/tomate_banner.jpg'; 
+
+// --- NOVO COMPONENTE HOME ---
 function Home() {
   return (
-    <div className="page-header">
-      <img 
-        src="/canesgril.png" 
-        alt="Canes Grill Logo" 
-        style={{ maxWidth: '180px' }} /* Adicione esta linha */
-      />
-      <h1>Bem-vindo ao Canes Grill!</h1>
-      <h2>Sua paixão por churrasco começa aqui.</h2>
-      <p style={{ marginTop: '2rem', fontSize: '1.1rem' }}>
-        Explore nosso cardápio e descubra os sabores que fazem da nossa casa o seu lugar preferido.
-      </p>
-    </div>
+    // 'main-home' é usado para sobrescrever o padding padrão do 'main'
+    <main className="main-home"> 
+      <section 
+        className="hero-banner" 
+        style={{ backgroundImage: `url(${bannerImage})` }}
+      >
+        <div className="hero-content">
+          <h1>Sabor que Acende a Paixão</h1>
+          <p>Descubra uma experiência autêntica onde cada corte de carne conta uma história.</p>
+          <Link to="/churras" className="cta-button">
+            Ver Cardápio
+          </Link>
+        </div>
+      </section>
+
+      {/* Você pode adicionar mais seções de conteúdo aqui abaixo do banner */}
+      {/* <div style={{padding: '2rem 1rem', maxWidth: '960px', margin: '0 auto'}}>
+        <h2>Sobre nós...</h2>
+        <p>Mais conteúdo aqui...</p>
+      </div>
+      */}
+    </main>
   );
 }
 
+// --- COMPONENTE APP ---
 function App() {
   return (
     <div className="app-container">
       <Header />
-
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/churras" element={<Churras />} />
-          <Route path="/Testar" element={<Testar />} />
-        </Routes>
-      </main>
+      
+      {/* O <main> foi movido para dentro de cada componente de página.
+        Isso permite que a página Home tenha um layout de largura total,
+        enquanto as outras páginas podem manter o container centralizado.
+        Certifique-se que as páginas Churras e Testar tenham um <main> se necessário.
+      */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+        <Route path="/churras/:pratoId" element={
+        <main>
+        <PratoDetalhe />
+        </main>
+        } />
+        {/* Envolvendo a página Churras em um <main> para manter o layout original */}
+        <Route path="/churras" element={
+          <main>
+            <Churras />
+          </main>
+        } />
+        <Route path="/Testar" element={
+          <main>
+            <Testar />
+          </main>
+        } />
+      </Routes>
       
       <Footer />
     </div>

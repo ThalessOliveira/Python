@@ -1,5 +1,9 @@
-// frontend/src/pages/Churras.jsx
 import React from 'react';
+import { Link } from 'react-router-dom'; // 1. Importar o Link
+import './styles/Churras.css';
+
+// 2. Importar os dados do novo arquivo
+import pratosData from '../data/pratos';
 
 function Churras() {
   return (
@@ -9,35 +13,22 @@ function Churras() {
         <h2>O melhor do churrasco, direto da brasa para sua mesa!</h2>
       </header>
       
-      <table className="churras-table">
-        <thead>
-          <tr>
-            <th>Tipo</th>
-            <th>Nome do Prato</th>
-            <th>Resumo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Churrasco</td>
-            <td>Picanha</td>
-            <td>
-              Considerada por muitos como a mais nobre e procurada carne de 
-              churrasco, a picanha pode ser servida ao ponto, malpassada ou 
-              bem passada. Suculenta e com sua característica capa de gordura.
-            </td>
-          </tr>
-          {/* Você pode adicionar mais pratos aqui */}
-          <tr>
-            <td>Acompanhamento</td>
-            <td>Pão de Alho</td>
-            <td>
-              Cremoso e crocante, nosso pão de alho artesanal é o acompanhamento
-              perfeito para qualquer corte.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="recipe-cards-container">
+        {pratosData.map((prato) => (
+          // 3. Envolver o card com o componente Link
+          <Link to={`/churras/${prato.id}`} key={prato.id} className="recipe-card-link">
+            <article className="recipe-card">
+              <div className="recipe-card-image-container">
+                  <img src={prato.imagem} alt={`Foto do prato ${prato.titulo}`} className="recipe-card-image" />
+              </div>
+              <div className="separator-line"></div>
+              <div className="recipe-card-content">
+                <h3>{prato.titulo}</h3>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
     </>
   );
 }

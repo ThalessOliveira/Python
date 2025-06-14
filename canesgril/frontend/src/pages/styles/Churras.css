@@ -1,0 +1,97 @@
+/* Estilos para o container dos cards de receitas */
+.recipe-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* --- AJUSTE PRINCIPAL (INÍCIO) --- */
+
+/* O link agora é o item flex, então ele recebe as propriedades de dimensionamento. */
+.recipe-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex; /* Mantém o comportamento flexível para o conteúdo interno */
+
+  /* Propriedades movidas de .recipe-card para cá */
+  flex: 1 1 280px;
+  max-width: 340px; 
+  transition: transform 0.3s ease; /* Adicionando transição ao link para o hover funcionar */
+}
+
+/* Efeito de hover aplicado no link, que é o elemento clicável */
+.recipe-card-link:hover {
+  transform: translateY(-5px);
+}
+
+/* O card em si agora apenas define sua aparência interna. */
+.recipe-card {
+  background-color: var(--background-content);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Garante que o card ocupe todo o espaço do link */
+  transition: box-shadow 0.3s ease; /* A transição da sombra pode ficar aqui */
+}
+
+.recipe-card-link:hover .recipe-card {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* --- AJUSTE PRINCIPAL (FIM) --- */
+
+
+.recipe-card-image-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.recipe-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.separator-line {
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #2E8B57, #3CB371);
+  border: none;
+}
+
+.recipe-card-content {
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.recipe-card-content h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* As media queries agora ajustam o .recipe-card-link */
+@media (max-width: 960px) {
+  .recipe-card-link {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .recipe-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recipe-card-link {
+    flex-basis: 90%;
+    max-width: 90%; 
+  }
+}
