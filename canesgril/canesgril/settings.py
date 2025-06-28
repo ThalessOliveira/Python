@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'churras',
+    'funcionarios',
+
     'rest_framework',
     'corsheaders',   
 ]
@@ -134,3 +137,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+
+# --- CONFIGURAÇÃO DE ARQUIVOS DE MÍDIA ---
+# A URL base para servir os arquivos de mídia enviados pelos usuários.
+MEDIA_URL = '/media/'
+
+# O caminho absoluto no sistema de arquivos para o diretório que irá conter os arquivos de mídia.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

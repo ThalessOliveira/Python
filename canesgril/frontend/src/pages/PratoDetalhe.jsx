@@ -1,16 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import pratosData from '../data/pratos';
 import './styles/PratoDetalhe.css'; 
 
-// Imagem do banner - ajuste o caminho no seu projeto real
 import bannerImage from '../assets/tomate_banner.jpg';
+
+// URL base da sua API Django para facilitar a manutenção
+const API_BASE_URL = 'http://127.0.0.1:8000';
 
 function PratoDetalhe() {
   const { pratoId } = useParams();
-  const prato = pratosData.find(p => p.id === parseInt(pratoId));
+  
+  const [prato, setPrato] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!prato) {
+  useEffect(() => {
+    const fetchPratoDetalhe = async () => {
+      try {
+        // CORREÇÃO: Removendo o '/churras/' da URL da API
+        const response = await fetch(`${API_BASE_URL}/api/churras/pratos/${pratoId}/`);
+        
+        if (!response.ok) {
+          throw new Error('Prato não encontrado');
+        }
+        
+        const data = await response.json();
+        setPrato(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPratoDetalhe();
+  }, [pratoId]);
+
+  if (loading) {
+    return <div className="loading">Carregando detalhes do prato...</div>;
+  }
+
+  if (error || !prato) {
     return (
       <div className="prato-nao-encontrado">
         <h1>Oops!</h1>
@@ -22,43 +52,50 @@ function PratoDetalhe() {
 
   return (
     <div className="detalhe-wrapper">
-      {/* 1. Banner Superior */}
       <div 
         className="detalhe-banner" 
         style={{ backgroundImage: `url(${bannerImage})` }}
         aria-label="Banner decorativo com tomates e ervas"
       ></div>
 
-      {/* 2. Título do Prato */}
-      <h1 className="detalhe-titulo">{prato.titulo}</h1>
+      <h1 className="detalhe-titulo">{prato.nome_prato}</h1>
 
-      {/* 3. Conteúdo Principal (Imagem + Informações) */}
       <section className="detalhe-main-content">
         <div className="detalhe-prato-imagem">
-          <img src={prato.imagem} alt={`Foto do prato ${prato.titulo}`} />
+          {/* --- MUDANÇA PRINCIPAL AQUI --- */}
+          {/* Renderiza a imagem somente se a URL existir */}
+          {prato.foto_prato_url && (
+            <img 
+              src={`${API_BASE_URL}${prato.foto_prato_url}`} 
+              alt={`Foto do prato ${prato.nome_prato}`} 
+            />
+          )}
         </div>
         
-        {/* A linha verde vertical é aplicada via CSS */}
         <div className="detalhe-meta-info">
           <div className="meta-item">
             <strong>Preparo</strong>
-            <span>{prato.preparo}</span>
+            <span>{prato.tempo_preparo} minutos</span>
           </div>
           <div className="meta-item">
             <strong>Rendimento</strong>
             <span>{prato.rendimento}</span>
           </div>
           <div className="meta-item">
-            <strong>Categoria</strong>
-            <span>{prato.categoria}</span>
+            <strong>Preço</strong>
+            <span>R$ {Number(prato.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
           </div>
         </div>
       </section>
 
-      {/* 4. Bloco de Descrição */}
-      <section className="detalhe-descricao">
-        <h2>Descrição do Prato</h2>
-        <p>{prato.descricao}</p>
+      <section className="detalhe-bloco">
+        <h2>Ingredientes</h2>
+        <p>{prato.ingredientes}</p>
+      </section>
+      
+      <section className="detalhe-bloco">
+        <h2>Modo de Preparo</h2>
+        <p>{prato.modo_preparo}</p>
       </section>
 
       <Link to="/churras" className="btn-voltar">
