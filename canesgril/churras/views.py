@@ -17,38 +17,45 @@ class ViewTesteAPI(APIView):
     
 def lista_pratos(request):
     """
-    Esta view busca todos os pratos do banco de dados
-    e os retorna como uma resposta JSON, incluindo a URL completa da imagem.
+    Esta view busca todos os pratos PUBLICADOS do banco de dados
+    e os retorna como uma resposta JSON.
     """
-    pratos = Prato.objects.all()
+    # MUDANÇA AQUI: de .all() para .filter(publicado=True)
+    pratos = Prato.objects.filter(publicado=True)
     data = []
 
     for prato in pratos:
-        # Para cada prato, construímos um dicionário manualmente
         prato_data = {
             'id': prato.id,
             'nome_prato': prato.nome_prato,
             'preco': prato.preco,
-            # Adicione outros campos que a lista possa precisar aqui
-            'foto_prato_url': None  # Valor padrão caso não haja foto
+            'foto_prato_url': None,
+            'funcionario': None
         }
         
-        # Verificamos se o campo foto_prato tem um arquivo associado
         if prato.foto_prato:
-            # .url gera a URL completa (ex: /media/fotos_pratos/nome_da_foto.jpg)
-            prato_data['foto_prato_url'] = prato.foto_prato.url
+            prato_data['foto_prato_url'] = request.build_absolute_uri(prato.foto_prato.url)
         
+        if prato.funcionario:
+            prato_data['funcionario'] = {
+                'id': prato.funcionario.id,
+                'nome': prato.funcionario.nome,
+                'sobrenome': prato.funcionario.sobrenome,
+                'nome_completo': f'{prato.funcionario.nome} {prato.funcionario.sobrenome}'
+            }
+            
         data.append(prato_data)
     
     return JsonResponse(data, safe=False)
 
 def detalhe_prato(request, prato_id):
     """
-    Esta view busca um prato específico pelo seu ID
-    e retorna seus dados em JSON, incluindo a URL da foto.
+    Esta view busca um prato específico e PUBLICADO pelo seu ID
+    e retorna seus dados em JSON.
     """
     try:
-        prato = Prato.objects.get(pk=prato_id)
+        # MUDANÇA AQUI: Adicionamos o filtro publicado=True também
+        prato = Prato.objects.get(pk=prato_id, publicado=True)
         
         # Monta um dicionário com os dados do prato
         data = {
@@ -61,12 +68,15 @@ def detalhe_prato(request, prato_id):
             'categoria': prato.categoria,
             'date_prato': prato.date_prato.strftime('%d/%m/%Y'),
             'preco': prato.preco,
-            # --- MUDANÇA PRINCIPAL AQUI ---
-            # Adiciona a URL da foto, se ela existir
-            'foto_prato_url': prato.foto_prato.url if prato.foto_prato else None
+            'foto_prato_url': None, # Iniciar como None
         }
+
+        # Melhoria: Montar a URL absoluta também para a view de detalhe
+        if prato.foto_prato:
+            data['foto_prato_url'] = request.build_absolute_uri(prato.foto_prato.url)
         
         return JsonResponse(data)
 
     except Prato.DoesNotExist:
+        # A exceção agora será lançada se o prato não existir OU não estiver publicado
         raise Http404("Prato não encontrado")

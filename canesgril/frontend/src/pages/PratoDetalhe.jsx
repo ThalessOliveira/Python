@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import './styles/PratoDetalhe.css'; 
 
 import bannerImage from '../assets/tomate_banner.jpg';
+import fotoReceitaPadrao from '../assets/foto_receita.png';
 
 // URL base da sua API Django para facilitar a manutenção
 const API_BASE_URL = 'http://127.0.0.1:8000';
@@ -61,13 +62,18 @@ function PratoDetalhe() {
       <h1 className="detalhe-titulo">{prato.nome_prato}</h1>
 
       <section className="detalhe-main-content">
-        <div className="detalhe-prato-imagem">
-          {/* --- MUDANÇA PRINCIPAL AQUI --- */}
-          {/* Renderiza a imagem somente se a URL existir */}
-          {prato.foto_prato_url && (
+      <div className="detalhe-prato-imagem">
+          {/* --- MUDANÇA 2: Lógica de renderização ajustada --- */}
+          {prato.foto_prato_url ? (
             <img 
-              src={`${API_BASE_URL}${prato.foto_prato_url}`} 
+              // CORREÇÃO BÔNUS: A URL já vem completa da API
+              src={prato.foto_prato_url} 
               alt={`Foto do prato ${prato.nome_prato}`} 
+            />
+          ) : (
+            <img 
+              src={fotoReceitaPadrao} 
+              alt="Prato sem foto" 
             />
           )}
         </div>
