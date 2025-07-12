@@ -95,3 +95,43 @@
     max-width: 90%; 
   }
 }
+
+/* Container que centraliza os botões */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Espaço entre os botões */
+  margin-top: 3rem; /* Espaço acima dos botões */
+  padding-bottom: 2rem; /* Espaço extra no final da página */
+}
+
+/* Estilo geral para os botões de paginação */
+.pagination-controls button {
+  padding: 0.75rem 1.5rem; /* Aumenta o tamanho do botão */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: bold; /* Fonte em negrito */
+  color: #fff; /* Cor do texto */
+  background-color: #af4c0f; /* Cor de fundo laranja/marrom para combinar com o tema */
+  border: none; /* Remove a borda padrão */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: all 0.2s ease-in-out; /* Animação suave para transições */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efeito ao passar o mouse sobre o botão (quando não está desabilitado) */
+.pagination-controls button:not(:disabled):hover {
+  background-color: #8e3e0c; /* Cor de fundo um pouco mais escura */
+  transform: translateY(-2px); /* Efeito de elevação sutil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+}
+
+/* Estilo para quando o botão estiver desabilitado */
+.pagination-controls button:disabled {
+  background-color: #ccc; /* Cor de fundo cinza, indicando inatividade */
+  color: #666; /* Cor do texto mais clara */
+  cursor: not-allowed; /* Cursor que indica que não é clicável */
+  box-shadow: none; /* Remove a sombra */
+  transform: none; /* Remove o efeito de elevação */
+}

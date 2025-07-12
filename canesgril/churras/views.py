@@ -3,6 +3,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Prato
 from django.http import JsonResponse, Http404
+from django.core.paginator import Paginator
+from .serializers import PratoSerializer
+from rest_framework.generics import ListAPIView
+from rest_framework import filters
 
 class ViewTesteAPI(APIView):
     """
@@ -15,38 +19,16 @@ class ViewTesteAPI(APIView):
         }
         return Response(data)
     
-def lista_pratos(request):
-    """
-    Esta view busca todos os pratos PUBLICADOS do banco de dados
-    e os retorna como uma resposta JSON.
-    """
-    # MUDANÇA AQUI: de .all() para .filter(publicado=True)
-    pratos = Prato.objects.filter(publicado=True)
-    data = []
+class ListaPratosAPIView(ListAPIView):
+    serializer_class = PratoSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['nome_prato'] # Habilita a busca por ?search=...
 
-    for prato in pratos:
-        prato_data = {
-            'id': prato.id,
-            'nome_prato': prato.nome_prato,
-            'preco': prato.preco,
-            'foto_prato_url': None,
-            'funcionario': None
-        }
-        
-        if prato.foto_prato:
-            prato_data['foto_prato_url'] = request.build_absolute_uri(prato.foto_prato.url)
-        
-        if prato.funcionario:
-            prato_data['funcionario'] = {
-                'id': prato.funcionario.id,
-                'nome': prato.funcionario.nome,
-                'sobrenome': prato.funcionario.sobrenome,
-                'nome_completo': f'{prato.funcionario.nome} {prato.funcionario.sobrenome}'
-            }
-            
-        data.append(prato_data)
-    
-    return JsonResponse(data, safe=False)
+    def get_queryset(self):
+        """
+        Retorna apenas os pratos publicados, ordenados por data.
+        """
+        return Prato.objects.filter(publicado=True).order_by('-date_prato')
 
 def detalhe_prato(request, prato_id):
     """

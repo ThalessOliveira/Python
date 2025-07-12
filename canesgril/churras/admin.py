@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import Prato
+from django.utils.html import mark_safe
 
 @admin.register(Prato) # Uma forma mais moderna e limpa de registrar
 class ListandoPratos(admin.ModelAdmin):
-    list_display = ('id', 'nome_prato', 'categoria', 'tempo_preparo', 'publicado') 
+    list_display = ('id', 'nome_prato', 'categoria', 'tempo_preparo', 'ver_thumbnail', 'publicado') 
     list_display_links = ('id', 'nome_prato')
     search_fields = ('nome_prato', )
     list_filter = ('categoria', 'publicado') 
@@ -12,6 +13,17 @@ class ListandoPratos(admin.ModelAdmin):
     
     # AÇÕES EM MASSA ADICIONADAS AQUI
     actions = ['marcar_como_publicado', 'remover_publicacao']
+
+    def ver_thumbnail(self, obj):
+        """
+        Função para renderizar a miniatura no admin.
+        """
+        if obj.foto_prato:
+            return mark_safe(f'<img src="{obj.foto_prato_thumb.url}" width="75" height="75" />')
+        return "Sem Imagem"
+    
+    # Define um nome amigável para a coluna
+    ver_thumbnail.short_description = "Miniatura"
 
     def marcar_como_publicado(self, request, queryset):
         """

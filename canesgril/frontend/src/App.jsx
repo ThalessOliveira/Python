@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react'; // 1. Importar useState
 import { Routes, Route, Link } from 'react-router-dom';
 
 // Importando os estilos e componentes
 import './App.css';
-// Crie e importe o CSS para a página Home
 import './pages/styles/Home.css'; 
 
 import Header from './components/Header';
@@ -13,13 +12,11 @@ import PratoDetalhe from './pages/PratoDetalhe';
 import Testar from './pages/Testar';
 
 // Importando a imagem do banner
-// Verifique se o caminho para sua imagem está correto
 import bannerImage from './assets/tomate_banner.jpg'; 
 
-// --- NOVO COMPONENTE HOME ---
+// --- COMPONENTE HOME (sem alterações) ---
 function Home() {
   return (
-    // 'main-home' é usado para sobrescrever o padding padrão do 'main'
     <main className="main-home"> 
       <section 
         className="hero-banner" 
@@ -33,42 +30,37 @@ function Home() {
           </Link>
         </div>
       </section>
-
-      {/* Você pode adicionar mais seções de conteúdo aqui abaixo do banner */}
-      {/* <div style={{padding: '2rem 1rem', maxWidth: '960px', margin: '0 auto'}}>
-        <h2>Sobre nós...</h2>
-        <p>Mais conteúdo aqui...</p>
-      </div>
-      */}
     </main>
   );
 }
 
-// --- COMPONENTE APP ---
+// --- COMPONENTE APP (com ajustes) ---
 function App() {
+  // 2. Criar o estado para o termo de busca aqui no componente pai.
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <div className="app-container">
-      <Header />
+      {/* 3. Passar o estado e a função para o Header */}
+      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       
-      {/* O <main> foi movido para dentro de cada componente de página.
-        Isso permite que a página Home tenha um layout de largura total,
-        enquanto as outras páginas podem manter o container centralizado.
-        Certifique-se que as páginas Churras e Testar tenham um <main> se necessário.
-      */}
       <Routes>
         <Route path="/" element={<Home />} />
         
+        {/* A rota de detalhe não precisa do termo de busca */}
         <Route path="/churras/:pratoId" element={
-        <main>
-        <PratoDetalhe />
-        </main>
-        } />
-        {/* Envolvendo a página Churras em um <main> para manter o layout original */}
-        <Route path="/churras" element={
           <main>
-            <Churras />
+            <PratoDetalhe />
           </main>
         } />
+
+        {/* 4. Passar o termo de busca para a página Churras */}
+        <Route path="/churras" element={
+          <main>
+            <Churras searchTerm={searchTerm} />
+          </main>
+        } />
+        
         <Route path="/Testar" element={
           <main>
             <Testar />
