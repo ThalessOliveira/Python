@@ -9,10 +9,8 @@ class FuncionarioSerializer(serializers.ModelSerializer):
         fields = ['id', 'nome', 'sobrenome'] # Adicione os campos que desejar
 
 class PratoSerializer(serializers.ModelSerializer):
-    # Para mostrar os dados do funcionário em vez de apenas o ID
     funcionario = FuncionarioSerializer(read_only=True)
-    # Usa o campo virtual da ImageKit para a thumbnail
-    foto_prato_thumb_url = serializers.CharField(source='foto_prato_thumb.url', read_only=True)
+    foto_prato_thumb_url = serializers.ImageField(source='foto_prato_thumb', read_only=True)
 
     class Meta:
         model = Prato
