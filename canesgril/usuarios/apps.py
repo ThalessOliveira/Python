@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
-class ChurrasConfig(AppConfig):
+
+class UsuariosConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'churras'
+    name = 'usuarios'

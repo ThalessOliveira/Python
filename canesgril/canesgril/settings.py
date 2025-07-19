@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'churras',
     'funcionarios',
+    'usuarios',
 
     'rest_framework',
     'corsheaders', 
@@ -78,7 +79,7 @@ TEMPLATES = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 9 
+    'PAGE_SIZE': 9
 }
 
 WSGI_APPLICATION = 'canesgril.wsgi.application'
@@ -143,6 +144,15 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+
+# IMPORTANTE: Para permitir cookies entre origens
+CORS_ALLOW_CREDENTIALS = True
+
+# Configurações de sessão para cross-origin
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True  # Requer HTTPS em produção
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True  # Requer HTTPS em produção
 
 # --- CONFIGURAÇÃO DE ARQUIVOS DE MÍDIA ---
 # A URL base para servir os arquivos de mídia enviados pelos usuários.

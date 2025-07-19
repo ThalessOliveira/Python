@@ -9,7 +9,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Churras from './pages/Churras';
 import PratoDetalhe from './pages/PratoDetalhe';
-import Testar from './pages/Testar';
 
 // Importando a imagem do banner
 import bannerImage from './assets/tomate_banner.jpg'; 
@@ -61,11 +60,6 @@ function App() {
           </main>
         } />
         
-        <Route path="/Testar" element={
-          <main>
-            <Testar />
-          </main>
-        } />
       </Routes>
       
       <Footer />

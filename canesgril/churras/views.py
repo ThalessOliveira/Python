@@ -7,22 +7,13 @@ from django.core.paginator import Paginator
 from .serializers import PratoSerializer
 from rest_framework.generics import ListAPIView
 from rest_framework import filters
-
-class ViewTesteAPI(APIView):
-    """
-    Uma view de teste para a API que retorna uma mensagem.
-    """
-    def get(self, request, *args, **kwargs):
-        data = {
-            'mensagem': 'Olá! A comunicação com o Django foi um sucesso!',
-            'estado': 'Estado: OK'
-        }
-        return Response(data)
+from rest_framework.pagination import PageNumberPagination
     
 class ListaPratosAPIView(ListAPIView):
     serializer_class = PratoSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['nome_prato'] # Habilita a busca por ?search=...
+    search_fields = ['nome_prato']
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         """
