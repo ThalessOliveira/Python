@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+y2=u*s#l-l@7*fp$sjzrp(*hijp=x#vl1w!fbql!9&)3^7l5(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -153,6 +153,7 @@ SESSION_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SECURE = True  # Requer HTTPS em produção
 CSRF_COOKIE_SAMESITE = 'None'
 CSRF_COOKIE_SECURE = True  # Requer HTTPS em produção
+CSRF_TRUSTED_ORIGINS = ['http://localhost:5173']
 
 # --- CONFIGURAÇÃO DE ARQUIVOS DE MÍDIA ---
 # A URL base para servir os arquivos de mídia enviados pelos usuários.

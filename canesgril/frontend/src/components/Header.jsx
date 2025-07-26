@@ -96,8 +96,7 @@ function Header({ searchTerm, setSearchTerm }) {
             {isAdmin &&( 
               <NavLink to="/admin">Admin</NavLink>
             )}
-            <button onClick={handleLogout}>Logout</button>
-
+            <NavLink to="#" onClick={handleLogout} className={({ isActive }) => (isActive ? 'active' : '')}>Logout</NavLink>
           </>
           ) : (
           <>

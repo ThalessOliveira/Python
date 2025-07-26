@@ -9,9 +9,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Churras from './pages/Churras';
 import PratoDetalhe from './pages/PratoDetalhe';
+import LoginPage from './pages/Login';
 
 // Importando a imagem do banner
 import bannerImage from './assets/tomate_banner.jpg'; 
+import CadastroPage from './pages/Cadastro';
+import DashboardPage from './pages/Dashboard';
 
 // --- COMPONENTE HOME (sem alterações) ---
 function Home() {
@@ -59,6 +62,11 @@ function App() {
             <Churras searchTerm={searchTerm} />
           </main>
         } />
+        <Route path="/login" element={<LoginPage />}/>
+
+        <Route path="/cadastro" element={<CadastroPage />}/>
+
+        <Route path='/dashboard' element={<DashboardPage />}/>
         
       </Routes>
       
